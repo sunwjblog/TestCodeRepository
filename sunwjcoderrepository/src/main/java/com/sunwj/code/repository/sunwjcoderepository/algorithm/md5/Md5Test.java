@@ -18,17 +18,22 @@ public class Md5Test {
 
     public static void main(String[] args) {
         StringBuilder newSign = new StringBuilder();
-        String mobile = "15986448074";
-        String orderId = "501941959480109";
+//        String mobile = "15986448074";
+//        String orderId = "501941959480109";
 //        String mobile = "13711511153";
 //        String orderId = "2201910161705220272";
+
+//        String mobile = "13711511153";
+//        String orderId = "337450945978962";
+        String mobile = "13480226485";
+        String orderId = "489930344856585";
         String channelId = "CMCCGD";
         newSign.append("phoneNumber=").append(mobile).append("$")
                 .append("orderId=").append(orderId).append("$")
                 .append("channelId=").append(channelId);
         String md5EncryptNewSign = stringToMD5(newSign.toString());
         String url = "https://wap.gd.10086.cn/nwap/recharge/rechargeLottery/index.jsps?phoneNumber=" +
-                mobile + "&orderId=" + orderId + "&orderId=" + "&channelId=CMCCGD&ts=" +
+                mobile + "&orderId=" + orderId + "&channelId=CMCCGD&ts=" +
                 System.currentTimeMillis() + "&sign=" + md5EncryptNewSign;
 
         System.out.println(url);
