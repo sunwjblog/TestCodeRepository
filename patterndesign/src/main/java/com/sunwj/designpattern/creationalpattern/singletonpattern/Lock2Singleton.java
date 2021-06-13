@@ -22,4 +22,9 @@ public class Lock2Singleton {
         }
         return singleton;
     }
+
+    public static void main(String[] args) {
+        String timeStr = "2021-06-11 15:45:13";
+        System.out.println(timeStr.startsWith("2021-06-11"));
+    }
 }
