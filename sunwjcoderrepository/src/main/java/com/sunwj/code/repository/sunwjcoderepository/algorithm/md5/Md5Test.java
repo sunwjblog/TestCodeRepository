@@ -25,12 +25,14 @@ public class Md5Test {
 
 //        String mobile = "13711511153";
 //        String orderId = "337450945978962";
-        String mobile = "13480226485";
-        String orderId = "489930344856585";
+        String mobile = "17266683956";
+        String orderId = "331631068964862";
         String channelId = "CMCCGD";
-        newSign.append("phoneNumber=").append(mobile).append("$")
+        newSign.append("channelId=").append(channelId).append("$")
                 .append("orderId=").append(orderId).append("$")
-                .append("channelId=").append(channelId);
+                .append("phoneNumber=").append(mobile);
+                //.append("$")
+                //.append("sercet=07be5894d5c6316241fd647dfd5c7c7a");;
         String md5EncryptNewSign = stringToMD5(newSign.toString());
         String url = "https://wap.gd.10086.cn/nwap/recharge/rechargeLottery/index.jsps?phoneNumber=" +
                 mobile + "&orderId=" + orderId + "&channelId=CMCCGD&ts=" +
@@ -44,6 +46,7 @@ public class Md5Test {
 
         System.out.println(url);
 
+        System.out.println(stringToMD5("123456"));
 
     }
 
