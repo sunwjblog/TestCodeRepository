@@ -68,7 +68,7 @@ public class DateTool {
 
         System.out.println(isDateCross(s1,e1,s2,e2));*/
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd 00:00:00.0");
+       /* SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd 00:00:00.0");
         Date date = sdf.parse("2021-05-01 00:00:00.0");
 //        Date curDate = addMinuteTo(date,0);
         Date s1 = sdf.parse(sdf.format(date));
@@ -81,7 +81,12 @@ public class DateTool {
         Date curMonth = getPreMonthDate(cal.getTime());
         //cal.set(Calendar.MONTH,0);
         System.out.printf(sdf.format(cal.getTime()));
-        System.out.printf(sdf.format(curMonth));
+        System.out.printf(sdf.format(curMonth));*/
+        Long ts = 1624157278513L;
+        Date tmp = new Date(ts);
+        Date now = new Date();
+        System.out.println(isLatestWeek(tmp,now));
+       // System.out.println(tmp1 / (1000 * 60) >= 60 * 24 * 7);
 
     }
 
@@ -101,7 +106,7 @@ public class DateTool {
     public static Date getPreDayDate(Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH)-1);
+        cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH)-8);
         return cal.getTime();
     }
     /**
@@ -115,5 +120,17 @@ public class DateTool {
         cal.setTime(date);
         cal.set(Calendar.MONTH, cal.get(Calendar.MONTH)-1);
         return cal.getTime();
+    }
+
+    public static boolean isLatestWeek(Date addtime,Date now){
+        Calendar calendar = Calendar.getInstance();  //得到日历
+        calendar.setTime(now);//把当前时间赋给日历
+        calendar.add(Calendar.DAY_OF_MONTH, -7);  //设置为7天前
+        Date before7days = calendar.getTime();   //得到7天前的时间
+        if(before7days.getTime() < addtime.getTime()){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

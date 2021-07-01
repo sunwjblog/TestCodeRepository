@@ -116,6 +116,11 @@
             <version>2.7.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>cn.ipokerface</groupId>
+            <artifactId>spring-boot-starter-redis-client</artifactId>
+            <version>2.1.0</version>
+        </dependency>
 
     </dependencies>
 
